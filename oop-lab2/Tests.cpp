@@ -124,3 +124,11 @@ TEST_CASE("Scaled and shifted distribution") {
     REQUIRE(HB->asymmetry() == 0.);
     REQUIRE(HB->kurtosis() == Approx(0.04).epsilon(0.01));
 }
+
+TEST_CASE("Error processing")
+{
+    ifstream file;
+    REQUIRE_THROWS_AS(new Primary(-1), invalid_argument);
+    REQUIRE_THROWS_AS(new Primary(5, 0, 0), invalid_argument);
+    REQUIRE_THROWS_AS(new Primary(file), runtime_error);
+}
