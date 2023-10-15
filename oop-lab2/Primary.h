@@ -15,7 +15,7 @@ private:
 
 public:
 
-	Primary(double v, double scale = 1, double shift = 0);
+	Primary(double v = 1, double scale = 1, double shift = 0);
 
 	Primary(ifstream& file);
 
