@@ -98,7 +98,7 @@ void step1()
 		break;
 
 	case '2':
-		cout << "Введите v mu lambda: ";
+		cout << "Введите v lambda mu: ";
 		cin >> v >> scale >> shift;
 		cout << endl;
 		try
