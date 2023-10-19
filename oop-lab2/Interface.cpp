@@ -4,15 +4,18 @@ void step2(const Primary* HB)
 {
 	ofstream x_s;
 	ofstream y_s;
+	ofstream params;
 	vector<pair<double, double>> table;
 	char option;
 	int n;
 	double x = 0;
 
 	cout << "Что делаем дальше?" << endl;
-	cout << "1. Вывести параметры распределения" << endl;
+	cout << "1. Вывести параметры распределения на экран" << endl;
 	cout << "2. Вычислить значение плотности распределения в произвольной точке" << endl;
-	cout << "3. Получить выборку для анализа" << endl << endl;
+	cout << "3. Получить выборку для анализа" << endl;
+	cout << "4. Вывести параметры распределения в файл" << endl << endl;
+
 
 	cin >> option;
 	cout << endl;
@@ -55,6 +58,10 @@ void step2(const Primary* HB)
 		x_s.close();
 
 		cout << endl << "Значения выборки записаны в файлы x_s.txt и y_s.txt" << endl;
+		break;
+
+	case '4':
+		HB->save_to_file(params);
 		break;
 
 	default:
@@ -103,7 +110,7 @@ void step1()
 		cout << endl;
 		try
 		{
-			HB = new Primary(v, shift, scale);
+			HB = new Primary(v, scale, shift);
 		}
 		catch(exception e)
 		{

@@ -16,10 +16,14 @@ Primary::Primary(ifstream& file)
     load_from_file(file);
 }
 
-void Primary::save_to_file() const
+void Primary::save_to_file(ofstream& file) const
 {
-    ofstream file;
-    file.open("params.txt");
+    string filename;
+
+    cout << "Введите имя файла: ";
+    cin >> filename;
+
+    file.open(filename);
     file << this->v << endl << this->scale << endl << this->shift;
     file.close();
 }

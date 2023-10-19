@@ -19,7 +19,7 @@ public:
 
 	Primary(ifstream& file);
 
-	void save_to_file() const;
+	void save_to_file(ofstream& file) const;
 
 	void load_from_file(ifstream& file);
 
